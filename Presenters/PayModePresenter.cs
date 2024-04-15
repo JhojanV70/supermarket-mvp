@@ -28,6 +28,18 @@ namespace Supermarket_mvp.Presenters
             this.view.DeleteEvent += DeleteSelectedPayMode;
             this.view.SaveEvent += SavePayMode;
             this.view.CancelEvent += CancelAction;
+
+            this.view.SetPayModeListBildingSource(payModeBindingSource);
+
+            LoadAllpayModeList();
+
+            this.view.Show();
+        }
+
+        private void LoadAllpayModeList()
+        {
+            payModeList = repository.GetAll();
+            payModeBindingSource.DataSource = payModeList;
         }
 
         private void CancelAction(object? sender, EventArgs e)
