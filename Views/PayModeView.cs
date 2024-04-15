@@ -18,21 +18,8 @@ namespace Supermarket_mvp.Views
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
+            tabControl1.TabPages.Remove(tabPagePayModeDetail);
 
-
-        }
-
-        private void AssociateAndRaiseViewEvents()
-        {
-            BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
-
-            TxtSearch.KeyDown += (s, e) =>
-            {
-                if (e.KeyCode == Keys.Enter)
-                {
-                    SearchEvent?.Invoke(this, EventArgs.Empty);
-                }
-            };
         }
 
         public string PayModeId
@@ -90,7 +77,7 @@ namespace Supermarket_mvp.Views
         {
             DgPayMode.DataSource = payModeList;
         }
-        /*private bool AssociateAndRaiseViewEvents()
+        private bool AssociateAndRaiseViewEvents()
         {
             BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
 
@@ -101,7 +88,7 @@ namespace Supermarket_mvp.Views
                     SearchEvent?.Invoke(this, EventArgs.Empty);
                 }
             };
-        }*/
+        }
 
       
     }
