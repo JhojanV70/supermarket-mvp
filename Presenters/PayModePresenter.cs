@@ -29,5 +29,35 @@ namespace Supermarket_mvp.Presenters
             this.view.SaveEvent += SavePayMode;
             this.view.CancelEvent += CancelAction;
         }
+
+        private void CancelAction(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SavePayMode(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DeleteSelectedPayMode(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadSelectPayModeToEdit(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AddNewPayMode(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SearchPayMode(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
