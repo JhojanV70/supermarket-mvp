@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace Supermarket_mvp.Models
 {
-    //repositorio 
+    
     internal class PayModeModel
     {
         [DisplayName("Pay Mode Id")]
