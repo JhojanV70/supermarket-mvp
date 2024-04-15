@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Supermarket_mvp.Models
 {
-    internal interface IpPayModeRepository
+    internal interface IPayModeRepository
     {
         void Add(PayModeModel payModeModel);
         void Edit(PayModeModel payModeModel);
