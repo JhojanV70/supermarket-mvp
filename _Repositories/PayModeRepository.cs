@@ -1,48 +1,35 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Supermarket_mvp.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
-using Microsoft.Data;
-using Supermarket_mvp.Models;
-using System.Data;
 
-namespace Supermarket_mvp.Properties
+namespace Supermarket_mvp._Repositories
 {
-    internal class BaseRepository : IPayModeRepository
+    internal class PayModeRepository : BaseRepository, IPayModeRepository
     {
-        protected string connectionString;
-
-        void IPayModeRepository.Add(PayModeModel payModeModel)
+        public PayModeRepository(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+        public void Add(PayModeModel payModeModel)
         {
             throw new NotImplementedException();
         }
 
-        void IPayModeRepository.Delete(int id)
+        public void Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        void IPayModeRepository.Edit(PayModeModel payModeModel)
+        public void Edit(PayModeModel payModeModel)
         {
             throw new NotImplementedException();
         }
 
-        IEnumerable<PayModeModel> IPayModeRepository.GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<PayModeModel> IPayModeRepository.GetByValue(string value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void add(PayModeModel payModeModel)
-        {
-            throw new NotImplementedException();
-        }
         public IEnumerable<PayModeModel> GetAll()
         {
             var payModeList = new List<PayModeModel>();
@@ -66,7 +53,7 @@ namespace Supermarket_mvp.Properties
                 return payModeList;
             }
         }
-        public IEnumerable<PayModeModel>GetByValue(string value)
+        public IEnumerable<PayModeModel> GetByValue(string value)
         {
             var payModeList = new List<PayModeModel>();
             int payModeId = int.TryParse(value, out _) ? Convert.ToInt32(value) : 0;
@@ -93,8 +80,9 @@ namespace Supermarket_mvp.Properties
                     }
                 }
 
-                return payModeList;                
+                return payModeList;
             }
         }
+
     }
 }
