@@ -21,6 +21,7 @@ namespace Supermarket_mvp.Views
             AssociateAndRaiseViewEvents();
 
             tabControl1.TabPages.Remove(tabPageDetail);
+            BtnClose.Click += delegate { this.Close(); };
         }
         
         public string CategorieId
@@ -72,8 +73,16 @@ namespace Supermarket_mvp.Views
         }
 
         private static CategorieView instance;
-        public static CategorieView GetInstance()
+        public static CategorieView GetInstance(Form parentContainer)
         {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new CategorieView();
+                instance.MdiParent = parentContainer;
+
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+            }
             if (instance == null || instance.IsDisposed)
             {
                 instance = new CategorieView();

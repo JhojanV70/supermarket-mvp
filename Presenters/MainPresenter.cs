@@ -38,7 +38,7 @@ namespace Supermarket_mvp.Presenters
         }
         private void ShowDetailView(object? sender, EventArgs e)
         {
-            IDetailView view = DetailView.GetInstance();
+            IDetailView view = DetailView.GetInstance((MainView)mainView);
             IDetailRepository repository = new DetailRepository(sqlConnectionString);
             new DetailPresenter(view, repository);
         }
