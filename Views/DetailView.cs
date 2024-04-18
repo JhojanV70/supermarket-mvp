@@ -19,7 +19,9 @@ namespace Supermarket_mvp.Views
         public DetailView()
         {
             InitializeComponent();
-        }
+            AssociateAndRaiseViewEvents();
+        }        
+
         public string DetailId
         {
             get { return TxtDetailId.Text; }
@@ -66,6 +68,18 @@ namespace Supermarket_mvp.Views
         public void SetDetailListBildingSource(BindingSource detailList)
         {
             DgDetail.DataSource = detailList;
+        }
+        private void AssociateAndRaiseViewEvents()
+        {
+            BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+
+            TxtSearch.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                }
+            };
         }
     }
 }
