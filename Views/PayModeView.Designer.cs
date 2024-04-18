@@ -43,8 +43,8 @@
             label2 = new Label();
             tabPagePayModeDetail = new TabPage();
             TxtPayModeObservation = new TextBox();
-            BtnCanel = new Button();
-            BntSave = new Button();
+            BtnCancel = new Button();
+            BtnSave = new Button();
             TxtPayModeName = new TextBox();
             TxtPayModeId = new TextBox();
             Label5 = new Label();
@@ -212,8 +212,8 @@
             // tabPagePayModeDetail
             // 
             tabPagePayModeDetail.Controls.Add(TxtPayModeObservation);
-            tabPagePayModeDetail.Controls.Add(BtnCanel);
-            tabPagePayModeDetail.Controls.Add(BntSave);
+            tabPagePayModeDetail.Controls.Add(BtnCancel);
+            tabPagePayModeDetail.Controls.Add(BtnSave);
             tabPagePayModeDetail.Controls.Add(TxtPayModeName);
             tabPagePayModeDetail.Controls.Add(TxtPayModeId);
             tabPagePayModeDetail.Controls.Add(Label5);
@@ -229,6 +229,7 @@
             // 
             // TxtPayModeObservation
             // 
+            TxtPayModeObservation.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TxtPayModeObservation.Location = new Point(22, 159);
             TxtPayModeObservation.Multiline = true;
             TxtPayModeObservation.Name = "TxtPayModeObservation";
@@ -236,44 +237,50 @@
             TxtPayModeObservation.Size = new Size(624, 130);
             TxtPayModeObservation.TabIndex = 8;
             // 
-            // BtnCanel
+            // BtnCancel
             // 
-            BtnCanel.Image = Properties.Resources.cancel;
-            BtnCanel.ImageAlign = ContentAlignment.TopCenter;
-            BtnCanel.Location = new Point(681, 105);
-            BtnCanel.Name = "BtnCanel";
-            BtnCanel.Size = new Size(75, 53);
-            BtnCanel.TabIndex = 7;
-            BtnCanel.Text = "&Cancel";
-            BtnCanel.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnCanel.UseVisualStyleBackColor = true;
+            BtnCancel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnCancel.Image = Properties.Resources.cancel;
+            BtnCancel.ImageAlign = ContentAlignment.TopCenter;
+            BtnCancel.Location = new Point(681, 105);
+            BtnCancel.Name = "BtnCancel";
+            BtnCancel.Size = new Size(75, 53);
+            BtnCancel.TabIndex = 7;
+            BtnCancel.Text = "&Cancel";
+            BtnCancel.TextImageRelation = TextImageRelation.ImageAboveText;
+            BtnCancel.UseVisualStyleBackColor = true;
             // 
-            // BntSave
+            // BtnSave
             // 
-            BntSave.Image = Properties.Resources.save;
-            BntSave.ImageAlign = ContentAlignment.TopCenter;
-            BntSave.Location = new Point(681, 14);
-            BntSave.Name = "BntSave";
-            BntSave.Size = new Size(75, 53);
-            BntSave.TabIndex = 6;
-            BntSave.Text = "&Save";
-            BntSave.TextImageRelation = TextImageRelation.ImageAboveText;
-            BntSave.UseVisualStyleBackColor = true;
+            BtnSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnSave.Image = Properties.Resources.save;
+            BtnSave.ImageAlign = ContentAlignment.TopCenter;
+            BtnSave.Location = new Point(681, 14);
+            BtnSave.Name = "BtnSave";
+            BtnSave.Size = new Size(75, 53);
+            BtnSave.TabIndex = 6;
+            BtnSave.Text = "&Save";
+            BtnSave.TextImageRelation = TextImageRelation.ImageAboveText;
+            BtnSave.UseVisualStyleBackColor = true;
             // 
             // TxtPayModeName
             // 
+            TxtPayModeName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TxtPayModeName.Location = new Point(22, 105);
             TxtPayModeName.Name = "TxtPayModeName";
             TxtPayModeName.PlaceholderText = "Pay Mode Name";
-            TxtPayModeName.Size = new Size(100, 23);
+            TxtPayModeName.Size = new Size(363, 23);
             TxtPayModeName.TabIndex = 4;
             // 
             // TxtPayModeId
             // 
+            TxtPayModeId.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TxtPayModeId.Location = new Point(22, 34);
             TxtPayModeId.Name = "TxtPayModeId";
-            TxtPayModeId.Size = new Size(100, 23);
+            TxtPayModeId.ReadOnly = true;
+            TxtPayModeId.Size = new Size(363, 23);
             TxtPayModeId.TabIndex = 3;
+            TxtPayModeId.Text = "0";
             // 
             // Label5
             // 
@@ -344,8 +351,8 @@
         private Label label3;
         private TextBox TxtPayModeName;
         private TextBox TxtPayModeId;
-        private Button BtnCanel;
-        private Button BntSave;
+        private Button BtnCancel;
+        private Button BtnSave;
         private TextBox TxtPayModeObservation;
     }
 }
