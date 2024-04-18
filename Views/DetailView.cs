@@ -20,6 +20,8 @@ namespace Supermarket_mvp.Views
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
+
+            tabControl1.TabPages.Remove(tabPageDetail);
         }        
 
         public string DetailId
