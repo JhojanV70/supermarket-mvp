@@ -18,6 +18,9 @@ namespace Supermarket_mvp.Views
         public CategorieView()
         {
             InitializeComponent();
+            AssociateAndRaiseViewEvents();
+
+            tabControl1.TabPages.Remove(tabPageDetail);
         }
         
         public string CategorieId
@@ -56,6 +59,8 @@ namespace Supermarket_mvp.Views
             set { message = value; }
         }
 
+        public string Description { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;
@@ -67,7 +72,18 @@ namespace Supermarket_mvp.Views
         {
             DgCategorie.DataSource = categorieList;
         }
+        private void AssociateAndRaiseViewEvents()
+        {
+            BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
 
+            TxtSearch.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                }
+            };
+        }
 
     }
 }
