@@ -33,7 +33,26 @@ namespace Supermarket_mvp._Repositories
 
         public IEnumerable<DetailModel> GetAll()
         {
-            throw new NotImplementedException();
+            var detailList = new List<DetailModel>();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "SELECT * FROM Detail ORDER BY Detail_Id DESC";
+                using (var reader = command.ExecuteReader())
+                {
+                    while(reader.Read())
+                    {
+                        var detailModel = new DetailModel();
+                        detailModel.Id = (int)reader["Detail_Id"];
+                        detailModel.Quantity = reader["Detail_Quantity"].ToString();
+                        detailModel.Price = reader["Detail_Price"].ToString();
+                        detailList.Add(detailModel);
+                    }
+                }
+            }
+            return detailList;
         }
 
         public IEnumerable<DetailModel> GetByValue(string value)
