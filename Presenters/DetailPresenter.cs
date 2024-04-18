@@ -29,6 +29,55 @@ namespace Supermarket_mvp.Presenters
             this.view.CancelEvent += CancelAction;
 
             this.view.SetDetailListBildingSource(detailBindingSource);
+
+            loadAllDetailList();
+
+            this.view.Show();
+        }
+
+        private void loadAllDetailList()
+        {
+            detailList = repository.GetAll();
+            detailBindingSource.DataSource = detailList;
+        }
+
+        private void CancelAction(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SaveDetail(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DeleteSelectedDetail(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadSelectDetailToEdit(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AddNewDetail(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SearchDetail(object? sender, EventArgs e)
+        {
+            bool emptyValue = string.IsNullOrWhiteSpace(this.view.SearchValue);
+            if (emptyValue == false)
+            {
+                detailList = repository.GetByValue(this.view.SearchValue);
+            }
+            else
+            {
+                detailList = repository.GetAll();
+            }
+            detailBindingSource.DataSource = detailList;
         }
     }
 }
