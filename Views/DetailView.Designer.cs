@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailView));
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
             label1 = new Label();
+            pictureBox1 = new PictureBox();
             tabControl1 = new TabControl();
             tabPageDetailList = new TabPage();
-            tabPageDetail = new TabPage();
             BtnClose = new Button();
             BtnDelete = new Button();
             BtnEdit = new Button();
@@ -42,6 +42,7 @@
             BtnSearch = new Button();
             TxtSearch = new TextBox();
             label2 = new Label();
+            tabPageDetail = new TabPage();
             TxtDetailPrice = new TextBox();
             BtnCancel = new Button();
             BtnSave = new Button();
@@ -54,8 +55,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
             tabPageDetailList.SuspendLayout();
-            tabPageDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DgDetail).BeginInit();
+            tabPageDetail.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -67,15 +68,6 @@
             panel1.Size = new Size(800, 100);
             panel1.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(12, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(135, 76);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -85,6 +77,16 @@
             label1.Size = new Size(174, 44);
             label1.TabIndex = 2;
             label1.Text = "Datails";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(135, 76);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
             // 
             // tabControl1
             // 
@@ -114,24 +116,6 @@
             tabPageDetailList.TabIndex = 0;
             tabPageDetailList.Text = "Mode Detail List";
             tabPageDetailList.UseVisualStyleBackColor = true;
-            // 
-            // tabPageDetail
-            // 
-            tabPageDetail.Controls.Add(TxtDetailPrice);
-            tabPageDetail.Controls.Add(BtnCancel);
-            tabPageDetail.Controls.Add(BtnSave);
-            tabPageDetail.Controls.Add(TxtDetailQuantity);
-            tabPageDetail.Controls.Add(TxtDetailId);
-            tabPageDetail.Controls.Add(Label5);
-            tabPageDetail.Controls.Add(label4);
-            tabPageDetail.Controls.Add(label3);
-            tabPageDetail.Location = new Point(4, 24);
-            tabPageDetail.Name = "tabPageDetail";
-            tabPageDetail.Padding = new Padding(3);
-            tabPageDetail.Size = new Size(792, 322);
-            tabPageDetail.TabIndex = 1;
-            tabPageDetail.Text = "Mode Detail";
-            tabPageDetail.UseVisualStyleBackColor = true;
             // 
             // BtnClose
             // 
@@ -227,6 +211,24 @@
             label2.Size = new Size(75, 15);
             label2.TabIndex = 8;
             label2.Text = "Search Detail";
+            // 
+            // tabPageDetail
+            // 
+            tabPageDetail.Controls.Add(TxtDetailPrice);
+            tabPageDetail.Controls.Add(BtnCancel);
+            tabPageDetail.Controls.Add(BtnSave);
+            tabPageDetail.Controls.Add(TxtDetailQuantity);
+            tabPageDetail.Controls.Add(TxtDetailId);
+            tabPageDetail.Controls.Add(Label5);
+            tabPageDetail.Controls.Add(label4);
+            tabPageDetail.Controls.Add(label3);
+            tabPageDetail.Location = new Point(4, 24);
+            tabPageDetail.Name = "tabPageDetail";
+            tabPageDetail.Padding = new Padding(3);
+            tabPageDetail.Size = new Size(792, 322);
+            tabPageDetail.TabIndex = 1;
+            tabPageDetail.Text = "Mode Detail";
+            tabPageDetail.UseVisualStyleBackColor = true;
             // 
             // TxtDetailPrice
             // 
@@ -325,9 +327,9 @@
             tabControl1.ResumeLayout(false);
             tabPageDetailList.ResumeLayout(false);
             tabPageDetailList.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DgDetail).EndInit();
             tabPageDetail.ResumeLayout(false);
             tabPageDetail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)DgDetail).EndInit();
             ResumeLayout(false);
         }
 

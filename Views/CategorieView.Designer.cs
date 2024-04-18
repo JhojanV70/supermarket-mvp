@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategorieView));
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             tabControl1 = new TabControl();
             tabPageCategorieList = new TabPage();
-            tabPageDetail = new TabPage();
             BtnClose = new Button();
             BtnDelete = new Button();
             BtnEdit = new Button();
@@ -42,6 +42,7 @@
             BtnSearch = new Button();
             TxtSearch = new TextBox();
             label2 = new Label();
+            tabPageDetail = new TabPage();
             TxtCategorieDescription = new TextBox();
             BtnCancel = new Button();
             BtnSave = new Button();
@@ -54,8 +55,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
             tabPageCategorieList.SuspendLayout();
-            tabPageDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DgCategorie).BeginInit();
+            tabPageDetail.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -70,6 +71,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(135, 76);
@@ -115,24 +117,6 @@
             tabPageCategorieList.TabIndex = 0;
             tabPageCategorieList.Text = "Categorie List";
             tabPageCategorieList.UseVisualStyleBackColor = true;
-            // 
-            // tabPageDetail
-            // 
-            tabPageDetail.Controls.Add(TxtCategorieDescription);
-            tabPageDetail.Controls.Add(BtnCancel);
-            tabPageDetail.Controls.Add(BtnSave);
-            tabPageDetail.Controls.Add(TxtCategorieName);
-            tabPageDetail.Controls.Add(TxtCategorieId);
-            tabPageDetail.Controls.Add(Label5);
-            tabPageDetail.Controls.Add(label4);
-            tabPageDetail.Controls.Add(label3);
-            tabPageDetail.Location = new Point(4, 24);
-            tabPageDetail.Name = "tabPageDetail";
-            tabPageDetail.Padding = new Padding(3);
-            tabPageDetail.Size = new Size(792, 322);
-            tabPageDetail.TabIndex = 1;
-            tabPageDetail.Text = "Categorie Detail";
-            tabPageDetail.UseVisualStyleBackColor = true;
             // 
             // BtnClose
             // 
@@ -228,6 +212,24 @@
             label2.Size = new Size(96, 15);
             label2.TabIndex = 8;
             label2.Text = "Search Categorie";
+            // 
+            // tabPageDetail
+            // 
+            tabPageDetail.Controls.Add(TxtCategorieDescription);
+            tabPageDetail.Controls.Add(BtnCancel);
+            tabPageDetail.Controls.Add(BtnSave);
+            tabPageDetail.Controls.Add(TxtCategorieName);
+            tabPageDetail.Controls.Add(TxtCategorieId);
+            tabPageDetail.Controls.Add(Label5);
+            tabPageDetail.Controls.Add(label4);
+            tabPageDetail.Controls.Add(label3);
+            tabPageDetail.Location = new Point(4, 24);
+            tabPageDetail.Name = "tabPageDetail";
+            tabPageDetail.Padding = new Padding(3);
+            tabPageDetail.Size = new Size(792, 322);
+            tabPageDetail.TabIndex = 1;
+            tabPageDetail.Text = "Categorie Detail";
+            tabPageDetail.UseVisualStyleBackColor = true;
             // 
             // TxtCategorieDescription
             // 
@@ -325,9 +327,9 @@
             tabControl1.ResumeLayout(false);
             tabPageCategorieList.ResumeLayout(false);
             tabPageCategorieList.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DgCategorie).EndInit();
             tabPageDetail.ResumeLayout(false);
             tabPageDetail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)DgCategorie).EndInit();
             ResumeLayout(false);
         }
 

@@ -70,6 +70,24 @@ namespace Supermarket_mvp.Views
         {
             DgCategorie.DataSource = categorieList;
         }
+
+        private static CategorieView instance;
+        public static CategorieView GetInstance()
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new CategorieView();
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
+        }
         private void AssociateAndRaiseViewEvents()
         {
             BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };

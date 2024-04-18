@@ -12,7 +12,7 @@ namespace Supermarket_mvp._Repositories
 {
     internal class DetailRepository : BaseRepository, IDetailRepository
     {
-        public CategorieRepository(string connectionString)
+        public DetailRepository(string connectionString)
         {
             this.connectionString = connectionString;
         }
