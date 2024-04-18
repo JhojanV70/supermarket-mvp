@@ -22,6 +22,7 @@ namespace Supermarket_mvp.Views
             AssociateAndRaiseViewEvents();
 
             tabControl1.TabPages.Remove(tabPageDetail);
+            BtnClose.Click += delegate { this.Close(); };
         }        
 
         public string DetailId
@@ -73,8 +74,16 @@ namespace Supermarket_mvp.Views
         }
         private static DetailView instance;
 
-        public static DetailView GetInstance()
+        public static DetailView GetInstance(Form parentContainer)
         {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new DetailView();
+                instance.MdiParent = parentContainer;
+
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill; 
+            }
             if (instance == null || instance.IsDisposed)
             {
                 instance = new DetailView();
