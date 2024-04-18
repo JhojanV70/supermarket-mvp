@@ -13,6 +13,10 @@ namespace Supermarket_mvp._Repositories
 {
     internal class CategorieRepository : BaseRepository, ICategorieRepository
     {
+        public CategorieRepository(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
         public void Add(CategorieModel categorieModel)
         {
             throw new NotImplementedException();

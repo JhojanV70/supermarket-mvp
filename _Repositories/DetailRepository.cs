@@ -12,6 +12,10 @@ namespace Supermarket_mvp._Repositories
 {
     internal class DetailRepository : BaseRepository, IDetailRepository
     {
+        public CategorieRepository(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
         public void Add(DetailModel detail)
         {
             throw new NotImplementedException();
