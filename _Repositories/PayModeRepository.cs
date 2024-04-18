@@ -6,6 +6,10 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
+using Microsoft.Data;
+using Supermarket_mvp.Models;
+using System.Data;
 
 namespace Supermarket_mvp._Repositories
 {
@@ -38,7 +42,7 @@ namespace Supermarket_mvp._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "SELECT * FORM PayMode ORDER BY Pay_Mode_Id DESC";
+                command.CommandText = "SELECT * FROM PayMode ORDER BY Pay_Mode_Id DESC";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -53,6 +57,7 @@ namespace Supermarket_mvp._Repositories
                 return payModeList;
             }
         }
+
         public IEnumerable<PayModeModel> GetByValue(string value)
         {
             var payModeList = new List<PayModeModel>();
@@ -63,9 +68,7 @@ namespace Supermarket_mvp._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = @"SELECT * FROM PayMode
-                                       WHERE Pay_Mode_Id=@ID or Pay_Mode_Name LIKE @name+ '%'
-                                        ORDER By Pay_Mode_Id DESC";
+                command.CommandText = @"SELECT * FROM PayMode WHERE Pay_Mode_Id=@id or Pay_Mode_Name LIKE @name+ '%' ORDER By Pay_ModeID DESC";
                 command.Parameters.Add("@id", SqlDbType.Int).Value = payModeId;
                 command.Parameters.Add("@name", SqlDbType.NVarChar).Value = payModeName;
                 using (var reader = command.ExecuteReader())
@@ -79,10 +82,8 @@ namespace Supermarket_mvp._Repositories
                         payModeList.Add(payModeModel);
                     }
                 }
-
-                return payModeList;
             }
+            return payModeList;
         }
-
     }
 }

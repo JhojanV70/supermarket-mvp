@@ -23,7 +23,7 @@ namespace Supermarket_mvp
             IPayModeRepository reposity = new PayModeRepository(sqlconnectionString);
             new PayModePresenter(view, reposity);
             Application.Run((Form) view);
-            Application.Run(new PayModeView());
+            //Application.Run(new PayModeView());
         }
     }
 }
