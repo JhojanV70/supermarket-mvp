@@ -1,0 +1,161 @@
+[33mcommit 82aaf82ad82cef8f3a9f69165c2c3dbbb4737fc5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Thu Apr 18 02:36:55 2024 -0500
+
+    Update Presenter y Repository for Pay Mode
+
+[33mcommit 08aaee3ca362f5d9401be5889f220cfe6e64fffa[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Thu Apr 18 00:39:05 2024 -0500
+
+    Configuracion de boton de salida MainView
+
+[33mcommit a5b5f501e2defabaf832266b9217bf8e0e027b30[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Thu Apr 18 00:31:12 2024 -0500
+
+    Configuracion de orientación de botones
+
+[33mcommit 838627db7d6678c1ea1f7e4eb228b967283fddd9[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Wed Apr 17 23:08:00 2024 -0500
+
+    Configuración de menú principal
+
+[33mcommit 376675fbfcd2097b83ae0af620e9f8861445d866[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 23:57:18 2024 -0500
+
+    Conexion a la BD
+
+[33mcommit d09257213a88b21104a8080b17027e1afd1b6eec[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 22:50:24 2024 -0500
+
+    Implementacion del metodo GetByValue
+
+[33mcommit a5dc437c1bf2c74e8a208746692f125acf827628[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 22:06:30 2024 -0500
+
+    Implementacion de la Interface IPayModeRepository
+
+[33mcommit 843ee14da07ac1f90b06879a3f59d8fca02f8f94[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 22:01:29 2024 -0500
+
+    Crear clase BaseRepository
+
+[33mcommit baf26ea48e99b7c6f602b4059b3df704ca014c34[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 11:31:21 2024 -0500
+
+    creacion de metodo logico del metodo 'SearchPayMode'
+
+[33mcommit 40e479ffca2a73b3cafeda47702201caca9b42e1[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 11:26:01 2024 -0500
+
+    Creacion de Metodo y logiaca de 'LoadAllpayModeList'
+
+[33mcommit 379265be83037141e73f0b95fde7f2d7ef3b53fe[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 11:11:23 2024 -0500
+
+    Creacion de metodo constructor
+
+[33mcommit afa9bb0ecf776a9c0935a9a2b45bc515b10b3549[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 11:02:36 2024 -0500
+
+    Creancion de metodo PayModePresenter y sus parametros
+
+[33mcommit 1cd340a09ad34785f9e6ea83196682a9296ccf25[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 10:40:28 2024 -0500
+
+    Creacion de clase 'PayModePresenter en la carpeta 'Presenter'
+
+[33mcommit 11fafc7766b0adc7d6f7cfead8029cf3e008c01e[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 10:25:51 2024 -0500
+
+    Se corrige errores del metodo 'AssociateAndRaiseViewEvents'
+
+[33mcommit fc3d5ae6b442391fe0a1968c514e5d035483c124[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 09:50:53 2024 -0500
+
+    Implementación de metodo AssociateAndRaiseViewEvents
+
+[33mcommit 3ed0a717daf55b107763d19b4b1a6a8ec15ab7cb[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 09:11:48 2024 -0500
+
+    Implemente los descriptores de acceso (get y set)
+
+[33mcommit ba14ec4a8e7658ffc4fecf2d11f8893de5a71e94[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 08:36:36 2024 -0500
+
+    Se agrega la Interface 'IPayModeView' y sus metodos-1
+
+[33mcommit 558493f4958f403ad98ce57b3763d1b0bf030fe7[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 08:35:22 2024 -0500
+
+    Se agrega la Interface 'IPayModeView' y sus metodos
+
+[33mcommit 6b2876ae04d8bf8bd515c17bbbe3fb20f1b16038[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Mon Apr 15 00:10:45 2024 -0500
+
+    Agregar propiedades en Diseño PayModeView
+
+[33mcommit cfb706c53a3e0d69f3e4c47df584f893631d4291[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Sun Apr 14 22:39:43 2024 -0500
+
+    crear fomulario PayModeView
+
+[33mcommit 34a303c05eed9c9b251a64719d96766fd761b5b4[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Sun Apr 14 22:31:38 2024 -0500
+
+    Agregar propiedades a la Interface 'IPayModeView'
+
+[33mcommit 7a6973a575c79c5db176ee18c87e3480e16ee784[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Sun Apr 14 22:23:50 2024 -0500
+
+    Crear Interface 'IPayModeView en la carpeta View'
+
+[33mcommit 800df0f0967fc2715d1cbf0c8b89ec3c7349afd7[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Sun Apr 14 21:59:59 2024 -0500
+
+    Agregar componentes a la Interface IpPayModeRepository
+
+[33mcommit e19cdf3c64dcb587e14178cc12c8ec3326e3c718[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Sun Apr 14 21:54:43 2024 -0500
+
+    crear Interface IpPayModeRepository
+
+[33mcommit a33125bc8a748c872cee0f7f6cbec97d5b94c53a[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Sun Apr 14 21:36:31 2024 -0500
+
+    Agregar pripiedades a la clase PayModeModel
+
+[33mcommit b3a27fb4e2e15d8ddd8f46f2fc8c74f60159b46b[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Sun Apr 14 21:13:21 2024 -0500
+
+    crear clase PayModeModel
+
+[33mcommit 9a21e9158bdf6f207af626b3c6e9511dfb7a12bb[m
+Author: JhojanV70 <jhojanv@gmail.com>
+Date:   Sat Apr 13 14:27:06 2024 -0500
+
+    initial proyecto
