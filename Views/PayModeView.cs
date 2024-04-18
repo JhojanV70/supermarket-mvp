@@ -19,6 +19,8 @@ namespace Supermarket_mvp.Views
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabPagePayModeDetail);
+            BtnClose.Click += delegate { this.Close(); };
+                    
 
         }
 
@@ -58,7 +60,7 @@ namespace Supermarket_mvp.Views
             set { message = value; }
         }
 
-        /*public string PayModeId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        /*string PayModeId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string PayModeName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string PayModeObservation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string SearchValue { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -89,5 +91,29 @@ namespace Supermarket_mvp.Views
                 }
             };
         }
+        private static PayModeView instance;
+        public static PayModeView GetInstance(Form parentContainer)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new PayModeView();
+                instance.MdiParent = parentContainer;
+
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Maximized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+
+            return instance;
+        }
+
+
     }
 }
