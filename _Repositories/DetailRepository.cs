@@ -1,5 +1,4 @@
-﻿using Supermarket_mvp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +10,9 @@ using System.Data;
 
 namespace Supermarket_mvp._Repositories
 {
-    internal class CategorieRepository : BaseRepository, ICategorieRepository
+    internal class DetailRepository : BaseRepository, IDetailRepository
     {
-        public void Add(CategorieModel categorieModel)
+        public void Add(DetailModel detail)
         {
             throw new NotImplementedException();
         }
@@ -23,17 +22,17 @@ namespace Supermarket_mvp._Repositories
             throw new NotImplementedException();
         }
 
-        public void Edit(CategorieModel categorieModel)
+        public void Edit(DetailModel detail)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<CategorieModel> GetAll()
+        public IEnumerable<DetailModel> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<CategorieModel> GetByValue(string value)
+        public IEnumerable<DetailModel> GetByValue(string value)
         {
             throw new NotImplementedException();
         }
