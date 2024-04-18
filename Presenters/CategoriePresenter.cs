@@ -30,6 +30,55 @@ namespace Supermarket_mvp.Presenters
             this.view.CancelEvent += CancelAction;
 
             this.view.SetCategorieListBildingSource(categorieBindingSource);
+
+            loadAllCategorieList();
+
+            this.view.Show();
+        }
+
+        private void loadAllCategorieList()
+        {
+            categorieList = repository.GetAll();
+            categorieBindingSource.DataSource = categorieList;
+        }
+
+        private void CancelAction(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SaveCategorie(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DeleteSelectedCategorie(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadSelectCategorieToEdit(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AddNewCategorie(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SearchCategorie(object? sender, EventArgs e)
+        {
+            bool emptyValue = string.IsNullOrWhiteSpace(this.view.SearchValue);
+            if (emptyValue)
+            {
+                categorieList = repository.GetByValue(this.view.SearchValue);
+            }
+            else
+            {
+                categorieList = repository.GetAll();
+            }
+            categorieBindingSource.DataSource = categorieList;
         }
     }
 
