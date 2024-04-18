@@ -58,7 +58,32 @@ namespace Supermarket_mvp._Repositories
 
         public IEnumerable<CategorieModel> GetByValue(string value)
         {
-            throw new NotImplementedException();
+            var categorieList = new List<CategorieModel>();
+            int categorieId = int.TryParse(value, out _) ? Convert.ToInt32(value) : 0;
+            string categorieName = value;
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"SELECT * FROM Categorie
+                                        WHERE Categorie_Id=@id or Categorie_Name LIKE @name+ '%'
+                                        ORDER By Categorie_Id DESC";
+                command.Parameters.Add("@id", SqlDbType.Int).Value = categorieId;
+                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = categorieName;
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var categorieModel = new CategorieModel();
+                        categorieModel.Id = (int)reader["Categorie_Id"];
+                        categorieModel.Name = reader["Categorie_Name"].ToString();
+                        categorieModel.Description = reader["Categorie_Description"].ToString();
+                        categorieList.Add(categorieModel);
+                    }
+                }
+            }
+            return categorieList;
         }
     }
 }
