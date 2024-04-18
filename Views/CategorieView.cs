@@ -59,8 +59,6 @@ namespace Supermarket_mvp.Views
             set { message = value; }
         }
 
-        public string Description { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;

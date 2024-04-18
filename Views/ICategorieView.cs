@@ -10,7 +10,7 @@ namespace Supermarket_mvp.Views
     {
         string CategorieId { get; set; }
         string CategorieName { get; set; }
-        string Description { get; set; }
+        string CategorieDescription { get; set; }
 
         string SearchValue { get; set; }
         bool IsEdit { get; set; }
