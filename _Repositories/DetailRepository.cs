@@ -57,7 +57,32 @@ namespace Supermarket_mvp._Repositories
 
         public IEnumerable<DetailModel> GetByValue(string value)
         {
-            throw new NotImplementedException();
+            var detailList = new List<DetailModel>();
+            int detailId = int.TryParse(value, out _) ? Convert.ToInt32(value) : 0;
+            string detailQuantity = value;
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"SELECT * FROM Categorie
+                                        WHERE Detail_Id=@id or Detail_Quantity LIKE @quantity+ '%'
+                                        ORDER By Detail_Id DESC";
+                command.Parameters.Add("@id", SqlDbType.Int).Value = detailId;
+                command.Parameters.Add("@quantity", SqlDbType.NVarChar).Value = detailQuantity;
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var detailModel = new DetailModel();
+                        detailModel.Id = (int)reader["Detail_Id"];
+                        detailModel.Quantity = reader["Detail_Quantity"].ToString();
+                        detailModel.Price = reader["Detail_Description"].ToString();
+                        detailList.Add(detailModel);
+                    }
+                }
+            }
+            return detailList;
         }
     }
 }
