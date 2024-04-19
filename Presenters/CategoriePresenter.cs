@@ -44,7 +44,7 @@ namespace Supermarket_mvp.Presenters
 
         private void CancelAction(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            CleanViewFields();
         }
 
         private void SaveCategorie(object? sender, EventArgs e)
@@ -56,6 +56,7 @@ namespace Supermarket_mvp.Presenters
 
             try
             {
+                new Common.ModelDataValidation().Validate(categorie);
                 if (view.IsEdit)
                 {
                     repository.Edit(categorie);
@@ -65,12 +66,22 @@ namespace Supermarket_mvp.Presenters
                     repository.Add(categorie);
                     view.Message = "CAtegorie Added Successfuly";
                 }
+                view.IsSuccessful = true;
+                loadAllCategorieList();
+                CleanViewFields();
             }
             catch (Exception ex)
             {
                 view.IsSuccessful = false;
                 view.Message = ex.Message;
             }
+        }
+
+        private void CleanViewFields()
+        {
+            view.CategorieId = "0";
+            view.CategorieName = "";
+            view.CategorieDescription = "";
         }
 
         private void DeleteSelectedCategorie(object? sender, EventArgs e)

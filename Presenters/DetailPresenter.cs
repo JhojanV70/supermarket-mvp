@@ -43,7 +43,7 @@ namespace Supermarket_mvp.Presenters
 
         private void CancelAction(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            CleanViewFields();
         }
 
         private void SaveDetail(object? sender, EventArgs e)
@@ -55,6 +55,7 @@ namespace Supermarket_mvp.Presenters
 
             try
             {
+                new Common.ModelDataValidation().Validate(detail);
                 if (view.IsEdit)
                 {
                     repository.Edit(detail);
@@ -65,12 +66,22 @@ namespace Supermarket_mvp.Presenters
                     repository.Add(detail);
                     view.Message = "Detail Added Successfuly";
                 }
+                view.IsSuccessful = true;
+                loadAllDetailList();
+                CleanViewFields();
             }
             catch (Exception ex)
             {
                 view.IsSuccessful = false;
                 view.Message = ex.Message;
             }
+        }
+
+        private void CleanViewFields()
+        {
+            view.DetailId = "0";
+            view.DetailQuantity = "0";
+            view.DetailPrice = "0";
         }
 
         private void DeleteSelectedDetail(object? sender, EventArgs e)
