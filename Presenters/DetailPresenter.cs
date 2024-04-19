@@ -58,12 +58,18 @@ namespace Supermarket_mvp.Presenters
 
         private void LoadSelectDetailToEdit(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var detail = (DetailModel)detailBindingSource.Current;
+
+            view.DetailId = detail.Id.ToString();
+            view.DetailQuantity = detail.Quantity;
+            view.DetailPrice = detail.Price;
+
+            view.IsEdit = true;
         }
 
         private void AddNewDetail(object? sender, EventArgs e)
         {
-            MessageBox.Show("Hizo Clic en el botón nuevo");
+            view.IsEdit = false;
         }
 
         private void SearchDetail(object? sender, EventArgs e)
