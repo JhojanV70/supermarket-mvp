@@ -48,7 +48,29 @@ namespace Supermarket_mvp.Presenters
 
         private void SaveDetail(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var detail = new DetailModel();
+            detail.Id = Convert.ToInt32(view.DetailId);
+            detail.Quantity = view.DetailQuantity;
+            detail.Price = view.DetailPrice;
+
+            try
+            {
+                if (view.IsEdit)
+                {
+                    repository.Edit(detail);
+                    view.Message = "Detail edited Successfuly";
+                }
+                else
+                {
+                    repository.Add(detail);
+                    view.Message = "Detail Added Successfuly";
+                }
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = ex.Message;
+            }
         }
 
         private void DeleteSelectedDetail(object? sender, EventArgs e)
