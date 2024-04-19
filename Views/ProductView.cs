@@ -79,7 +79,15 @@ namespace Supermarket_mvp.Views
         }
         private void AssociateAndRaiseViewEvents()
         {
-            throw new NotImplementedException();
+            BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+
+            TxtSearch.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                }
+            };
         }
     }
 }
