@@ -118,9 +118,34 @@ namespace Supermarket_mvp.Views
             };
 
 
-            BtnDelete.Click += delegate { DeleteEvent?.Invoke(this, EventArgs.Empty); };
-            BtnSave.Click += delegate { SaveEvent?.Invoke(this, EventArgs.Empty); };
-            BtnCancel.Click += delegate { CancelEvent?.Invoke(this, EventArgs.Empty); };
+            BtnDelete.Click += delegate { DeleteEvent?.Invoke(this, EventArgs.Empty);
+
+                var Result = MessageBox.Show("Are you sure you want to delete the selected Categorie",
+                    "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (Result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+            };
+
+            BtnSave.Click += delegate { SaveEvent?.Invoke(this, EventArgs.Empty); 
+                
+                if (isSuccessful)
+                {
+                    tabControl1.TabPages.Remove(tabPageDetail);
+                    tabControl1.TabPages.Add(tabPageDetailList);
+                }
+                MessageBox.Show(Message);
+            };
+
+            BtnCancel.Click += delegate { CancelEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageDetail);
+                tabControl1.TabPages.Add(tabPageDetailList);
+            };
 
             TxtSearch.KeyDown += (s, e) =>
             {
