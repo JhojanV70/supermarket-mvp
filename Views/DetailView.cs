@@ -120,7 +120,7 @@ namespace Supermarket_mvp.Views
 
             BtnDelete.Click += delegate { DeleteEvent?.Invoke(this, EventArgs.Empty); };
             BtnSave.Click += delegate { SaveEvent?.Invoke(this, EventArgs.Empty); };
-            BtnCancel.Click += { CancelEvent?.Invoke(this, EventArgs.Empty); };
+            BtnCancel.Click += delegate { CancelEvent?.Invoke(this, EventArgs.Empty); };
 
             TxtSearch.KeyDown += (s, e) =>
             {
