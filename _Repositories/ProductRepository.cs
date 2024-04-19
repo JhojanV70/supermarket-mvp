@@ -9,7 +9,31 @@ using System.Data;
 
 namespace Supermarket_mvp._Repositories
 {
-    internal class ProductRepository
+    internal class ProductRepository : BaseRepository, IProductRepository
     {
+        public void Add(ProductModel productModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Edit(ProductModel productModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ProductModel> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ProductModel> GetByValue(string value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
