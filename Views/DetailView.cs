@@ -102,6 +102,26 @@ namespace Supermarket_mvp.Views
         {
             BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
 
+            BtnNew.Click += delegate { AddNewEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageDetailList);
+                tabControl1.TabPages.Add(tabPageDetail);
+                tabPageDetail.Text = "Add New Detail";
+            };
+
+
+            BtnEdit.Click += delegate { EditEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageDetailList);
+                tabControl1.TabPages.Add(tabPageDetail);
+                tabPageDetail.Text = "Edit Detail";
+            };
+
+
+            BtnDelete.Click += delegate { DeleteEvent?.Invoke(this, EventArgs.Empty); };
+            BtnSave.Click += delegate { SaveEvent?.Invoke(this, EventArgs.Empty); };
+            BtnCancel.Click += { CancelEvent?.Invoke(this, EventArgs.Empty); };
+
             TxtSearch.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter)

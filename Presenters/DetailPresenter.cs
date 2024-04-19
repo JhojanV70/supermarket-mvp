@@ -63,7 +63,7 @@ namespace Supermarket_mvp.Presenters
 
         private void AddNewDetail(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Hizo Clic en el botón nuevo");
         }
 
         private void SearchDetail(object? sender, EventArgs e)
