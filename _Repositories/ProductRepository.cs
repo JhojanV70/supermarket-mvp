@@ -58,7 +58,33 @@ namespace Supermarket_mvp._Repositories
 
         public IEnumerable<ProductModel> GetByValue(string value)
         {
-            throw new NotImplementedException();
+            var productList = new List<ProductModel>();
+            int productId = int.TryParse(value, out _) ? Convert.ToInt32(value) : 0;
+            string productName = value;
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"SELECT * FROM Product
+                                        WHERE Product_Id=@id or Product_Name LIKE @name+ '%'
+                                        ORDER By Product_Id DESC";
+                command.Parameters.Add("@id", SqlDbType.Int).Value = productId;
+                command.Parameters.Add("@Name", SqlDbType.NVarChar).Value = productName;
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var productModel = new ProductModel();
+                        productModel.Id = (int)reader["Detail_Id"];
+                        productModel.Name = reader["Detail_Name"].ToString();
+                        productModel.Price = (int)reader["Product_Price"];
+                        productModel.Stock = (int)reader["Product_Stock"];
+                        productList.Add(productModel);
+                    }
+                }
+            }
+            return productList;
         }
     }
 }
