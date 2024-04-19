@@ -23,7 +23,7 @@ namespace Supermarket_mvp.Views
 
             tabControl1.TabPages.Remove(tabPageDetail);
             BtnClose.Click += delegate { this.Close(); };
-        }        
+        }
 
         public string DetailId
         {
@@ -82,7 +82,7 @@ namespace Supermarket_mvp.Views
                 instance.MdiParent = parentContainer;
 
                 instance.FormBorderStyle = FormBorderStyle.None;
-                instance.Dock = DockStyle.Fill; 
+                instance.Dock = DockStyle.Fill;
             }
             if (instance == null || instance.IsDisposed)
             {
@@ -102,7 +102,9 @@ namespace Supermarket_mvp.Views
         {
             BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
 
-            BtnNew.Click += delegate { AddNewEvent?.Invoke(this, EventArgs.Empty);
+            BtnNew.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
 
                 tabControl1.TabPages.Remove(tabPageDetailList);
                 tabControl1.TabPages.Add(tabPageDetail);
@@ -110,7 +112,9 @@ namespace Supermarket_mvp.Views
             };
 
 
-            BtnEdit.Click += delegate { EditEvent?.Invoke(this, EventArgs.Empty);
+            BtnEdit.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
 
                 tabControl1.TabPages.Remove(tabPageDetailList);
                 tabControl1.TabPages.Add(tabPageDetail);
@@ -118,7 +122,9 @@ namespace Supermarket_mvp.Views
             };
 
 
-            BtnDelete.Click += delegate { DeleteEvent?.Invoke(this, EventArgs.Empty);
+            BtnDelete.Click += delegate
+            {
+                DeleteEvent?.Invoke(this, EventArgs.Empty);
 
                 var Result = MessageBox.Show("Are you sure you want to delete the selected Categorie",
                     "Warning",
@@ -131,8 +137,10 @@ namespace Supermarket_mvp.Views
                 }
             };
 
-            BtnSave.Click += delegate { SaveEvent?.Invoke(this, EventArgs.Empty); 
-                
+            BtnSave.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+
                 if (isSuccessful)
                 {
                     tabControl1.TabPages.Remove(tabPageDetail);
@@ -141,7 +149,9 @@ namespace Supermarket_mvp.Views
                 MessageBox.Show(Message);
             };
 
-            BtnCancel.Click += delegate { CancelEvent?.Invoke(this, EventArgs.Empty);
+            BtnCancel.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
 
                 tabControl1.TabPages.Remove(tabPageDetail);
                 tabControl1.TabPages.Add(tabPageDetailList);
