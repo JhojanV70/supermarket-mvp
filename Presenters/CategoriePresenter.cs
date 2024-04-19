@@ -49,7 +49,28 @@ namespace Supermarket_mvp.Presenters
 
         private void SaveCategorie(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var categorie = new CategorieModel();
+            categorie.Id = Convert.ToInt32(view.CategorieId);
+            categorie.Name = view.CategorieName;
+            categorie.Description = view.CategorieDescription;
+
+            try
+            {
+                if (view.IsEdit)
+                {
+                    repository.Edit(categorie);
+                }
+                else
+                {
+                    repository.Add(categorie);
+                    view.Message = "CAtegorie Added Successfuly";
+                }
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = ex.Message;
+            }
         }
 
         private void DeleteSelectedCategorie(object? sender, EventArgs e)
