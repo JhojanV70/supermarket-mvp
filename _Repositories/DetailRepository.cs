@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Supermarket_mvp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
-using Microsoft.Data;
-using Supermarket_mvp.Models;
 using System.Data;
 
 namespace Supermarket_mvp._Repositories
@@ -16,19 +15,49 @@ namespace Supermarket_mvp._Repositories
         {
             this.connectionString = connectionString;
         }
-        public void Add(DetailModel detail)
+        public void Add(DetailModel detailModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "INSERT INTO Detail VALUES (@quantity, @price)";
+                command.Parameters.Add("@quantity", SqlDbType.NVarChar).Value = detailModel.Quantity;
+                command.Parameters.Add("@price", SqlDbType.NVarChar).Value = detailModel.Price;
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "DELETE FROM Detail WHERE Detail_Id = id";
+                command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                command.ExecuteNonQuery();
+            }
         }
 
-        public void Edit(DetailModel detail)
+        public void Edit(DetailModel detailModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"UPDATE Detail
+                                       SET Detail_Quantity = @quantity,
+                                       Detail_Price = @price
+                                        WHERE Detail_Id = @id";
+                command.Parameters.Add("@quantity", SqlDbType.NVarChar).Value = detailModel.Quantity;
+                command.Parameters.Add("@price", SqlDbType.NVarChar).Value = detailModel.Price;
+                command.Parameters.Add("@id", SqlDbType.NVarChar).Value = detailModel.Id;
+                command.ExecuteNonQuery();
+            }
         }
 
         public IEnumerable<DetailModel> GetAll()

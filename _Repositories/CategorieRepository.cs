@@ -26,7 +26,7 @@ namespace Supermarket_mvp._Repositories
                 command.Connection = connection;
                 command.CommandText = "INSERT INTO Categorie VALUES (@name, @description)";
                 command.Parameters.Add("@name", SqlDbType.NVarChar).Value = categorieModel.Name;
-                command.Parameters.Add("@Description", SqlDbType.NVarChar).Value = categorieModel.Description;
+                command.Parameters.Add("@description", SqlDbType.NVarChar).Value = categorieModel.Description;
                 command.ExecuteNonQuery();
             }
                 

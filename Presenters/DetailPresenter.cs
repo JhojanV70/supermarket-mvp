@@ -86,7 +86,19 @@ namespace Supermarket_mvp.Presenters
 
         private void DeleteSelectedDetail(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var detail = (DetailModel)detailBindingSource.Current;
+
+                repository.Delete(detail.Id);
+                view.IsSuccessful = true;
+                view.Message = "Detail deleted successfully";
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = "An error ocurred, could not deleted Detail";
+            }
         }
 
         private void LoadSelectDetailToEdit(object? sender, EventArgs e)
