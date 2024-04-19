@@ -86,7 +86,19 @@ namespace Supermarket_mvp.Presenters
 
         private void DeleteSelectedCategorie(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var categorie = (CategorieModel)categorieBindingSource.Current;
+
+                repository.Delete(categorie.Id);
+                view.IsSuccessful = true;
+                view.Message = "Categorie deleted successfully";
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = "An error ocurred, could not deleted Categorie";
+            }
         }
 
         private void LoadSelectCategorieToEdit(object? sender, EventArgs e)
