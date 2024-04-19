@@ -241,7 +241,6 @@
             TxtProductPrice.Size = new Size(363, 23);
             TxtProductPrice.TabIndex = 24;
             TxtProductPrice.Text = "0";
-            TxtProductPrice.TextChanged += TxtDetailPrice_TextChanged;
             // 
             // BtnCancel
             // 
@@ -277,7 +276,6 @@
             TxtProductName.Size = new Size(363, 23);
             TxtProductName.TabIndex = 21;
             TxtProductName.Text = "0";
-            TxtProductName.TextChanged += this.TxtDetailQuantity_TextChanged;
             // 
             // TxtProductId
             // 
@@ -288,7 +286,6 @@
             TxtProductId.Size = new Size(363, 23);
             TxtProductId.TabIndex = 20;
             TxtProductId.Text = "0";
-            TxtProductId.TextChanged += this.TxtDetailId_TextChanged;
             // 
             // Label5
             // 
