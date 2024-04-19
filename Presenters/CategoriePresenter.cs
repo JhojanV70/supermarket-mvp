@@ -59,12 +59,18 @@ namespace Supermarket_mvp.Presenters
 
         private void LoadSelectCategorieToEdit(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var categorie = (CategorieModel)categorieBindingSource.Current;
+
+            view.CategorieId = categorie.Id.ToString();
+            view.CategorieName = categorie.Name;
+            view.CategorieDescription = categorie.Description;
+
+            view.IsEdit = true;
         }
 
         private void AddNewCategorie(object? sender, EventArgs e)
         {
-            MessageBox.Show("Se hizo clic en el botón nuevo");
+            view.IsEdit = false;
         }
 
         private void SearchCategorie(object? sender, EventArgs e)
