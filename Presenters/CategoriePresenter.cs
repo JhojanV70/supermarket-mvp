@@ -64,7 +64,7 @@ namespace Supermarket_mvp.Presenters
 
         private void AddNewCategorie(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Se hizo clic en el botón nuevo");
         }
 
         private void SearchCategorie(object? sender, EventArgs e)

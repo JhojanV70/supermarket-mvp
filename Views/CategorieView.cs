@@ -108,6 +108,18 @@ namespace Supermarket_mvp.Views
                     SearchEvent?.Invoke(this, EventArgs.Empty);
                 }
             };
+            BtnNew.Click += delegate { AddNewEvent?.Invoke(this, EventArgs.Empty); };
+
+            BtnEdit.Click += delegate { EditEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageCategorieList);
+                tabControl1.TabPages.Add(tabPageDetail);
+                tabPageDetail.Text = "Add new Categorie";
+            };
+            BtnDelete.Click += delegate { DeleteEvent?.Invoke(this, EventArgs.Empty); };
+            BtnSave.Click += delegate { SaveEvent?.Invoke(this, EventArgs.Empty); };
+            BtnCancel.Click += delegate { CancelEvent?.Invoke(this, EventArgs.Empty); };
+
         }
 
     }
