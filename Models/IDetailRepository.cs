@@ -8,8 +8,8 @@ namespace Supermarket_mvp.Models
 {
     internal interface IDetailRepository
     {
-        void Add(DetailModel detail);
-        void Edit(DetailModel detail);
+        void Add(DetailModel detailModel);
+        void Edit(DetailModel detailModel);
         void Delete(int id);
         IEnumerable<DetailModel> GetAll();
         IEnumerable<DetailModel> GetByValue(string value);

@@ -99,19 +99,18 @@ namespace Supermarket_mvp._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = @"SELECT * FROM PayMode WHERE Pay_Mode_Id=@id or Pay_Mode_Name LIKE @name+ '%' ORDER By Pay_ModeID DESC";
+                command.CommandText = @"SELECT * FROM PayMode 
+                                      WHERE Pay_Mode_Id=@id or Pay_Mode_Name LIKE @name+ '%' 
+                                      ORDER By Pay_ModeID DESC";
                 command.Parameters.Add("@id", SqlDbType.Int).Value = payModeId;
                 command.Parameters.Add("@name", SqlDbType.NVarChar).Value = payModeName;
                 using (var reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
-                    {
-                        var payModeModel = new PayModeModel();
-                        payModeModel.Id = (int)reader["Pay_Mode_Id"];
-                        payModeModel.Name = reader["Pay_Mode_Name"].ToString();
-                        payModeModel.Observation = reader["Pay_Mode_Observation"].ToString();
-                        payModeList.Add(payModeModel);
-                    }
+                    var payModeModel = new PayModeModel();
+                    payModeModel.Id = (int)reader["Pay_Mode_Id"];
+                    payModeModel.Name = reader["Pay_Mode_Name"].ToString();
+                    payModeModel.Observation = reader["Pay_Mode_Observation"].ToString();
+                    payModeList.Add(payModeModel);
                 }
             }
             return payModeList;

@@ -39,8 +39,8 @@ namespace Supermarket_mvp._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "DELETE FROM Categorie WHERE Categorie_Id = id";
-                command.Parameters.Add("@id",SqlDbType.Int).Value = id;
+                command.CommandText = "DELETE FROM PayMode WHERE Categorie_Id = @id";
+                command.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 command.ExecuteNonQuery();
             }
         }
@@ -57,8 +57,8 @@ namespace Supermarket_mvp._Repositories
                                        Categorie_Description = @description
                                         WHERE Categorie_Id = @id";
                 command.Parameters.Add("@name", SqlDbType.NVarChar).Value = categorieModel.Name;
-                command.Parameters.Add("@Description", SqlDbType.NVarChar).Value = categorieModel.Description;
-                command.Parameters.Add("@id", SqlDbType.NVarChar).Value = categorieModel.Id;
+                command.Parameters.Add("@description", SqlDbType.NVarChar).Value = categorieModel.Description;
+                command.Parameters.Add("@id", SqlDbType.Int).Value = categorieModel.Id;
                 command.ExecuteNonQuery();
             }
         }

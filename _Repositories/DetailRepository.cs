@@ -36,7 +36,7 @@ namespace Supermarket_mvp._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "DELETE FROM Detail WHERE Detail_Id = id";
+                command.CommandText = "DELETE FROM PayMode WHERE Detail_Id = @id";
                 command.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 command.ExecuteNonQuery();
             }
@@ -55,7 +55,7 @@ namespace Supermarket_mvp._Repositories
                                         WHERE Detail_Id = @id";
                 command.Parameters.Add("@quantity", SqlDbType.NVarChar).Value = detailModel.Quantity;
                 command.Parameters.Add("@price", SqlDbType.NVarChar).Value = detailModel.Price;
-                command.Parameters.Add("@id", SqlDbType.NVarChar).Value = detailModel.Id;
+                command.Parameters.Add("@id", SqlDbType.Int).Value = detailModel.Id;
                 command.ExecuteNonQuery();
             }
         }
@@ -68,7 +68,7 @@ namespace Supermarket_mvp._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "SELECT * FROM Detail ORDER BY Detail_Id DESC";
+                command.CommandText = "SELECT * FROM Detail ORDER BY Detail_Id DESC";              
                 using (var reader = command.ExecuteReader())
                 {
                     while(reader.Read())
@@ -94,7 +94,7 @@ namespace Supermarket_mvp._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = @"SELECT * FROM Categorie
+                command.CommandText = @"SELECT * FROM Detail
                                         WHERE Detail_Id=@id or Detail_Quantity LIKE @quantity+ '%'
                                         ORDER By Detail_Id DESC";
                 command.Parameters.Add("@id", SqlDbType.Int).Value = detailId;
@@ -106,7 +106,7 @@ namespace Supermarket_mvp._Repositories
                         var detailModel = new DetailModel();
                         detailModel.Id = (int)reader["Detail_Id"];
                         detailModel.Quantity = reader["Detail_Quantity"].ToString();
-                        detailModel.Price = reader["Detail_Description"].ToString();
+                        detailModel.Price = reader["Detail_Price"].ToString();
                         detailList.Add(detailModel);
                     }
                 }
