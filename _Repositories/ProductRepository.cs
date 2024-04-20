@@ -18,7 +18,17 @@ namespace Supermarket_mvp._Repositories
 
         public void Add(ProductModel productModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "INSERT INTO Product VALUES (@Name, @price , @stock)";
+                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = productModel.Name;
+                command.Parameters.Add("@price", SqlDbType.Int).Value = productModel.Price;
+                command.Parameters.Add("@stock", SqlDbType.Int).Value = productModel.Stock;
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Delete(int id)
