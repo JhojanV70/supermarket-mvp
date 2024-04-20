@@ -39,16 +39,16 @@ namespace Supermarket_mvp._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "SELECT * FROM Product ORDER BY Detail_Id DESC";
+                command.CommandText = "SELECT * FROM Product ORDER BY Product_Id DESC";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         var productModel = new ProductModel();
-                        productModel.Id = (int)reader["Detail_Id"];
-                        productModel.Name = reader["Detail_Name"].ToString();
-                        productModel.Price = (int)reader["Detail_Price"];
-                        productModel.Stock = (int)reader["Detail_Stock"];
+                        productModel.Id = (int)reader["Product_Id"];
+                        productModel.Name = reader["Product_Name"].ToString();
+                        productModel.Price = (int)reader["Product_Price"];
+                        productModel.Stock = (int)reader["Product_Stock"];
                         productList.Add(productModel);
                     }
                 }
@@ -76,8 +76,8 @@ namespace Supermarket_mvp._Repositories
                     while (reader.Read())
                     {
                         var productModel = new ProductModel();
-                        productModel.Id = (int)reader["Detail_Id"];
-                        productModel.Name = reader["Detail_Name"].ToString();
+                        productModel.Id = (int)reader["Product_Id"];
+                        productModel.Name = reader["Product_Name"].ToString();
                         productModel.Price = (int)reader["Product_Price"];
                         productModel.Stock = (int)reader["Product_Stock"];
                         productList.Add(productModel);

@@ -35,12 +35,14 @@
             BtnExit = new Button();
             BtnPayMode = new Button();
             pictureBox1 = new PictureBox();
+            BtnProduct = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(BtnProduct);
             panel1.Controls.Add(BtnDetail);
             panel1.Controls.Add(BtnCategorie);
             panel1.Controls.Add(BtnExit);
@@ -103,6 +105,16 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // BtnProduct
+            // 
+            BtnProduct.BackgroundImage = Properties.Resources.products;
+            BtnProduct.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnProduct.Location = new Point(0, 283);
+            BtnProduct.Name = "BtnProduct";
+            BtnProduct.Size = new Size(200, 79);
+            BtnProduct.TabIndex = 5;
+            BtnProduct.UseVisualStyleBackColor = true;
+            // 
             // MainView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -126,5 +138,6 @@
         private Button BtnExit;
         private Button BtnDetail;
         private Button BtnCategorie;
+        private Button BtnProduct;
     }
 }

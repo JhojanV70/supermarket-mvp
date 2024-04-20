@@ -19,9 +19,9 @@ namespace Supermarket_mvp
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             string sqlConnectionString = Settings.Default.SqlConnection;
-            /*IDetailView view = new DetailView();
-            IDetailRepository repository = new DetailRepository(sqlConnectionString);
-            new DetailPresenter(view, repository);*/
+           /* ICategorieView view = new CategorieView();
+            ICategorieRepository repository = new CategorieRepository(sqlConnectionString);
+            new CategoriePresenter(view, repository);*/
             IMainView view = new MainView();
             new MainPresenter(view, sqlConnectionString);
             Application.Run((Form)view);
