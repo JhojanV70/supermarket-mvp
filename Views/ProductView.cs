@@ -77,6 +77,24 @@ namespace Supermarket_mvp.Views
         {
             DgProduct.DataSource = productList;
         }
+        private static ProductView instance;
+        public static ProductView GetInstance(Form parentContainer)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new ProductView();
+                instance.MdiParent = parentContainer;
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Maximized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
+        }
         private void AssociateAndRaiseViewEvents()
         {
             BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
