@@ -50,7 +50,34 @@ namespace Supermarket_mvp.Presenters
 
         private void SaveProduct(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var product = new ProductModel();
+            product.Id = Convert.ToInt32(view.ProductId);
+            product.Name = view.ProductName;
+            product.Price = Convert.ToInt32(view.ProductPrice);
+            product.Stock = Convert.ToInt32(view.ProductStock);
+
+            try
+            {
+                new Common.ModelDataValidation().Validate(product);
+                if (view.IsEdit)
+                {
+                    repository.Edit(product);
+                    view.Message = "Product edit Successfuly";
+                }
+                else
+                {
+                    repository.Add(product);
+                    view.Message = "Product added Successfuly";
+                }
+                view.IsSuccessful = true;
+                LoadAllproductList();
+                CleanViewFields();
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = ex.Message;
+            }
         }
 
         private void DeleteSelectedProduct(object? sender, EventArgs e)
