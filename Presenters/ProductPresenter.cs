@@ -45,7 +45,7 @@ namespace Supermarket_mvp.Presenters
         }
         private void CancelAction(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            CleanViewFields();
         }
 
         private void SaveProduct(object? sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace Supermarket_mvp.Presenters
                     view.Message = "Product added Successfuly";
                 }
                 view.IsSuccessful = true;
-                LoadAllproductList();
+                loadAllProductlList();
                 CleanViewFields();
             }
             catch (Exception ex)
@@ -78,6 +78,14 @@ namespace Supermarket_mvp.Presenters
                 view.IsSuccessful = false;
                 view.Message = ex.Message;
             }
+        }
+
+        private void CleanViewFields()
+        {
+            view.ProductId = "0";
+            view.ProductName = "";
+            view.ProductPrice = "0";
+            view.ProductStock = "0";
         }
 
         private void DeleteSelectedProduct(object? sender, EventArgs e)
