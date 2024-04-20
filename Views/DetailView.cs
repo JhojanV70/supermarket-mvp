@@ -134,7 +134,7 @@ namespace Supermarket_mvp.Views
             {
                 DeleteEvent?.Invoke(this, EventArgs.Empty);
 
-                var Result = MessageBox.Show("Are you sure you want to delete the selected Categorie",
+                var Result = MessageBox.Show("Are you sure you want to delete the selected detail",
                     "Warning",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 

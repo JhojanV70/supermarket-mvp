@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Supermarket_mvp.Models;
 using Supermarket_mvp.Views;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 
 namespace Supermarket_mvp.Presenters
@@ -59,12 +60,19 @@ namespace Supermarket_mvp.Presenters
 
         private void LoadSelectProductToEdit(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var product = (ProductModel)productBindingSource.Current;
+
+            view.ProductId = product.Id.ToString();
+            view.ProductName = product.Name;
+            view.ProductPrice = product.Price.ToString();
+            view.ProductStock = product.Stock.ToString();
+
+            view.IsEdit = true;
         }
 
         private void AddNewProduct(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            view.IsEdit = false;
         }
 
         private void SearchProduct(object? sender, EventArgs e)

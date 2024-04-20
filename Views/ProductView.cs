@@ -116,7 +116,7 @@ namespace Supermarket_mvp.Views
 
                 tabControl1.TabPages.Remove(tabPageProductList);
                 tabControl1.TabPages.Add(tabPageProductDetail);
-                tabPageProductDetail.Text = "Add New Detail";
+                tabPageProductDetail.Text = "Add New Product";
             };
 
 
@@ -126,7 +126,7 @@ namespace Supermarket_mvp.Views
 
                 tabControl1.TabPages.Remove(tabPageProductList);
                 tabControl1.TabPages.Add(tabPageProductDetail);
-                tabPageProductDetail.Text = "Edit Detail";
+                tabPageProductDetail.Text = "Edit Product";
             };
 
 
@@ -134,7 +134,7 @@ namespace Supermarket_mvp.Views
             {
                 DeleteEvent?.Invoke(this, EventArgs.Empty);
 
-                var Result = MessageBox.Show("Are you sure you want to delete the selected Categorie",
+                var Result = MessageBox.Show("Are you sure you want to delete the selected product",
                     "Warning",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
