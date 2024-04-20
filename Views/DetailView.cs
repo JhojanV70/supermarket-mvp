@@ -102,6 +102,14 @@ namespace Supermarket_mvp.Views
         {
             BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
 
+            TxtSearch.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                }
+            };            
+
             BtnNew.Click += delegate
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
@@ -155,15 +163,7 @@ namespace Supermarket_mvp.Views
 
                 tabControl1.TabPages.Remove(tabPageDetail);
                 tabControl1.TabPages.Add(tabPageDetailList);
-            };
-
-            TxtSearch.KeyDown += (s, e) =>
-            {
-                if (e.KeyCode == Keys.Enter)
-                {
-                    SearchEvent?.Invoke(this, EventArgs.Empty);
-                }
-            };
+            };            
         }
     }
 }
