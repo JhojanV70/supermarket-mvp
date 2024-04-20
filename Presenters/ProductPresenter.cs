@@ -90,7 +90,20 @@ namespace Supermarket_mvp.Presenters
 
         private void DeleteSelectedProduct(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var product = (ProductModel)productBindingSource.Current;
+
+                repository.Delete(product.Id);
+                view.IsSuccessful = true;
+                view.Message = "Product delete successful";
+                loadAllProductlList();
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = "An error ocurred, could not delete Product";
+            }
         }
 
         private void LoadSelectProductToEdit(object? sender, EventArgs e)
